@@ -1,7 +1,15 @@
 from flask import Flask
-from .routes import example_bp  # 👈 importamos la ruta
+from flask_cors import CORS
 
 def create_app():
     app = Flask(__name__)
-    app.register_blueprint(example_bp)  # 👈 la registramos
+
+    # Habilitar CORS
+    CORS(app)
+
+    from .routes import api_bp
+    app.register_blueprint(api_bp)
+
     return app
+
+app = create_app()
