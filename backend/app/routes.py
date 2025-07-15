@@ -1,8 +1,9 @@
+# backend/app/routes.py
+
 from flask import Blueprint, jsonify
 
-api_bp = Blueprint('api', __name__)
+main = Blueprint('main', __name__)
 
-@api_bp.route('/ping', methods=['GET'])
+@main.route('/ping')
 def ping():
     return jsonify({'message': 'pong'})
-
